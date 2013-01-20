@@ -1,5 +1,5 @@
-(ns skypeclj.plugins.pastebin
-  (:use skypeclj.registry
+(ns helga.plugins.pastebin
+  (:use helga.registry
         [aleph http formats]
         [lamina core executor])
   (:require [clojure.tools.logging :as log]

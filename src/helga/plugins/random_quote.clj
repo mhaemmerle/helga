@@ -1,5 +1,5 @@
-(ns skypeclj.plugins.random-quote
-  (:use skypeclj.registry
+(ns helga.plugins.random-quote
+  (:use helga.registry
         [aleph http formats])
   (:require [clojure.tools.logging :as log]
             [clojure.string :as string])

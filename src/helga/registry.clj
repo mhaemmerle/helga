@@ -1,9 +1,9 @@
-(ns skypeclj.registry
+(ns helga.registry
   (:use [aleph http formats]
         [lamina core]
         [useful.fn :only [fix to-fix !]])
   (:require [clojure.tools.logging :as log]
-            [skypeclj.hydra :as hydra]))
+            [helga.hydra :as hydra]))
 
 ;; taken from http://github.com/flatland/lazybot
 
@@ -49,7 +49,7 @@
 
 (defn load-plugin
   [bot plugin]
-  (let [ns (symbol (str "skypeclj.plugins." plugin))]
+  (let [ns (symbol (str "helga.plugins." plugin))]
     (require ns :reload)
     ((resolve (symbol (str ns "/load-this-plugin"))) bot)))
 

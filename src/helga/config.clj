@@ -1,4 +1,4 @@
-(ns skypeclj.config
+(ns helga.config
   (:require [clojure.java.io :as io])
   (:import [java.io PushbackReader]))
 

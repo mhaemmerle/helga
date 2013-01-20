@@ -1,4 +1,4 @@
-(ns skypeclj.logger
+(ns helga.logger
   (:use camel-snake-kebab
         [lamina core executor]
         [aleph http formats]
@@ -161,7 +161,7 @@
               (javascript-tag "var CLOSURE_NO_DEPS = true;")
               (include-js "//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js")
               (include-js "/js/main.js")
-              (javascript-tag (str "skypeclj_client.core.init(" conversation-oid ")"))])}))
+              (javascript-tag (str "helga_client.core.init(" conversation-oid ")"))])}))
 
 (defn- encode-event-data
   [data]

@@ -1,4 +1,4 @@
-(ns skypeclj-client.core
+(ns helga-client.core
   (:require [crate.core :as crate]
             [goog.dom :as dom]
             [snout.core :as snout])

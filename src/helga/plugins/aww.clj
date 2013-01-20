@@ -1,8 +1,8 @@
-(ns skypeclj.plugins.aww
-  (:use skypeclj.registry)
+(ns helga.plugins.aww
+  (:use helga.registry)
   (:require [clojure.tools.logging :as log]
             [clojure.string :as string]
-            [skypeclj.hydra :as hydra]))
+            [helga.hydra :as hydra]))
 
 (defplugin
   (:cmd

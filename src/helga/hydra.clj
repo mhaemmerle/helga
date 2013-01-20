@@ -1,4 +1,4 @@
-(ns skypeclj.hydra
+(ns helga.hydra
   (:require [clojure.tools.logging :as log])
   (:use [cheshire.core :only [generate-string]])
   (:import [org.mozilla.javascript Context Scriptable NativeObject NativeArray

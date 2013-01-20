@@ -1,10 +1,10 @@
-(ns skypeclj.core
+(ns helga.core
   (:gen-class)
   (:use clojure.tools.cli)
   (:require [clojure.tools.logging :as log]
-            [skypeclj.config :as config]
-            [skypeclj.bot :as bot]
-            [skypeclj.logger :as logger]))
+            [helga.config :as config]
+            [helga.bot :as bot]
+            [helga.logger :as logger]))
 
 (defn at-exit
   [runnable]

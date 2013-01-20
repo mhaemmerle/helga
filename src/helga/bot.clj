@@ -1,10 +1,10 @@
-(ns skypeclj.bot
+(ns helga.bot
   (:require [clojure.tools.logging :as log]
             [clojure.string :as string]
-            [skypeclj.skype :as skype]
-            [skypeclj.config :as config]
-            [skypeclj.logger :as logger]
-            [skypeclj.registry :as registry])
+            [skypeclj.core :as skype]
+            [helga.config :as config]
+            [helga.logger :as logger]
+            [helga.registry :as registry])
   (:import [com.skype.api Skype AccountListener Account$Status Account$Property
             Conversation Message]))
 

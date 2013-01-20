@@ -1,5 +1,5 @@
-(ns skypeclj.plugins.echo
-  (:use skypeclj.registry)
+(ns helga.plugins.echo
+  (:use helga.registry)
   (:require [clojure.tools.logging :as log]
             [clojure.string :as string]))
 
