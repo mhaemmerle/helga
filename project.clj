@@ -5,7 +5,7 @@
                  [org.clojure/tools.logging "0.2.3"]
                  [org.clojure/tools.cli "0.2.2"]
                  [skypeclj "0.1.0-SNAPSHOT"]
-                 [aleph "0.3.0-SNAPSHOT"]
+                 [aleph "0.3.0-beta10"]
                  [ring "1.1.6"]
                  [compojure "1.1.3"]
                  [camel-snake-kebab "0.1.0-SNAPSHOT"]

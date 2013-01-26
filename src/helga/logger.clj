@@ -36,10 +36,8 @@
   []
   (distributor :conv-id
                (fn [facet facet-channel]
-                 (log/info "distributor" facet facet-channel (keyword? facet))
                  (let [ch-name facet
                        conv-channel (named-channel ch-name (fn [_]))]
-                   (log/info "distributor" ch-name conv-channel)
                    (close-on-idle 5000 facet-channel)
                    (close-on-idle 5000 conv-channel)
                    (ground conv-channel)

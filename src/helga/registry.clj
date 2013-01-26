@@ -24,6 +24,7 @@
               two)})))
 
 (defn if-seq-error [fn-type possible-seq]
+  (log/info "if-seq-error" fn-type possible-seq)
   (if (and (not (fn? possible-seq)) (seq possible-seq))
     (throw (Exception. (str "Only one " fn-type " function allowed.")))
     possible-seq))
@@ -33,6 +34,7 @@
 (defmacro defplugin [& body]
   (let [{:keys [cmd hook cleanup init routes]} (parse-fns body)
         scmd (if (map? cmd) [cmd] cmd)]
+    (log/info "defplugin" cmd hook cleanup init routes)
     `(let [pns# *ns*
            p-name# (keyword (last (.split (str pns#) "\\.")))]
        (defn ~'load-this-plugin [bot#]
@@ -49,18 +51,28 @@
 
 (defn load-plugin
   [bot plugin]
+  (log/info "load plugin #1")
   (let [ns (symbol (str "helga.plugins." plugin))]
     (require ns :reload)
+    (log/info "load plugin #2")
     ((resolve (symbol (str ns "/load-this-plugin"))) bot)))
 
 (defn find-command
   [bot cmd]
   (some #(when (= cmd (:triggers %)) %) (mapcat :commands (vals (:plugins @bot)))))
 
+(defn pull-hooks
+  [bot hook-key]
+  (map :fn
+       (hook-key
+        (apply merge-with concat
+               (map :hooks
+                    (vals (:plugins @bot)))))))
+
 (defn handle
-  [bot cmd-fn args]
+  [bot conversation message cmd-fn args]
   (log/info "execute" cmd-fn)
   (try
-    (cmd-fn (assoc @bot :args args))
+    (cmd-fn {:bot bot :conversation conversation :message message :args args})
     (catch Exception exception
       (.getMessage exception))))

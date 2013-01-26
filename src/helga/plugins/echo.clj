@@ -7,7 +7,7 @@
   (:cmd
    "Echoes everything back to you. Even silence."
    #{"echo"}
-   (fn [{:keys [args] :as bot}]
+   (fn [{:keys [bot conversation message args] :as cmd-map}]
      (if (seq args)
        (str (format "You said: \"%s\"" (string/join " " args)))
        "You decided to remain silent."))))

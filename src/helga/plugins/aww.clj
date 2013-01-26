@@ -8,5 +8,5 @@
   (:cmd
    ""
    #{"aww"}
-   (fn [{:keys [args] :as bot}]
+   (fn [{:keys [bot conversation message args] :as cmd-map}]
      (hydra/r bot))))

@@ -25,5 +25,5 @@
   (:cmd
    "Paste code to http://pastebin.com; example langs are: actionscript3 clojure ruby erlang"
    #{"pastebin"}
-   (fn [{:keys [args] :as bot}]
+   (fn [{:keys [bot conversation message args] :as cmd-map}]
      (do-paste (first args) (string/join " " (rest args))))))
