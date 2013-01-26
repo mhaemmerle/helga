@@ -39,15 +39,14 @@
            p-name# (keyword (last (.split (str pns#) "\\.")))]
        (defn ~'load-this-plugin [bot#]
          (when ~init ((if-seq-error "init" ~init) bot#))
-         (dosync
-          (swap! bot# assoc-in [:plugins p-name#]
-                 {:commands ~scmd
-                  :hooks (into {}
-                               (for [[k# v#] (apply merge-with-conj
-                                                    (make-vector ~hook))]
-                                 [k# (make-vector v#)]))
-                  :cleanup (if-seq-error "cleanup" ~cleanup)
-                  :routes ~routes}))))))
+         (swap! bot# assoc-in [:plugins p-name#]
+                {:commands ~scmd
+                 :hooks (into {}
+                              (for [[k# v#] (apply merge-with-conj
+                                                   (make-vector ~hook))]
+                                [k# (make-vector v#)]))
+                 :cleanup (if-seq-error "cleanup" ~cleanup)
+                 :routes ~routes})))))
 
 (defn load-plugin
   [bot plugin]
